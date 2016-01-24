@@ -1,0 +1,43 @@
+header img, .course-badge{
+    width: 40px;
+}
+header h3 {
+    margin: 0;
+}
+header {
+    margin: 2em 0;
+}
+.category-badge {
+    width: 30px;
+}
+.skill-image {
+    display: block;
+    width: 70%;
+    margin: 0 auto;
+}
+.instructor-image {
+    display: block;
+    width: 100%;
+    border-radius: 50%;
+    margin: 2em 0 0 0;
+}
+.twitter-handle {
+    margin: 0;
+    color: red;
+    font-weight: bolder;
+    font-size: 1.4em;
+}
+.instructor-job-title {
+    margin: 0;
+    font-weight: bolder;
+}
+footer p {
+    opacity: 0.6;
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -o-transition: .2s;
+    transition: .2s;
+}
+footer p:hover {
+    opacity: 1;
+}

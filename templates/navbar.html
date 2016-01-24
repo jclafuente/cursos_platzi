@@ -1,0 +1,17 @@
+{% url "courses:list" as courses_list %}
+{% url "courses:list_categories" as courses_list_categories %}
+{% url "courses:list_careers" as courses_list_careers %}
+
+<nav>
+    <ul class="nav nav-pills pull-right">
+        <li {% if request.path == courses_list %}class="active" {% endif %}>
+            <a href="{% url "courses:list" %}">Cursos</a>
+        </li>
+        <li {% if request.path == courses_list_categories %}class="active" {% endif %}>
+            <a href="{% url "courses:list_categories" %}">Por Categoría</a>
+        </li>
+        <li {% if request.path == courses_list_careers %}class="active" {% endif %}>
+            <a href="{% url "courses:list_careers" %}">Por Carreras</a>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Cursos de Platzi por carreras{% endblock %}
+
+{% block content %}
+
+    {% for career in career_list %}
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <img class="category-badge" src="{{ career.badge.url }}" alt="{{ career.name }}" />
+                    {{ career.name }}
+                </div>
+                <div class="panel-body">
+                    {% for course in career.course_set.all %}
+                        <p>
+                            <a href="{% url "courses:detail" course.slug %}">
+                                <img class="category-badge" src="{{ course.badge.url }}" alt="{{ course.name }}" />
+                                {{ course.name }}
+                            </a>
+                        </p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
