@@ -1,8 +1,9 @@
 """Course views."""
 
 from .models import (
-    Course,
+    Career,
     Category,
+    Course,
 )
 
 from django.views.generic import ListView
@@ -16,3 +17,8 @@ class CoursesListView(ListView):
 class CoursesListCategoriesView(ListView):
 
     model = Category
+
+
+class CoursesListCareersView(ListView):
+
+    model = Career
