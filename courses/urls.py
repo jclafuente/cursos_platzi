@@ -1,9 +1,10 @@
 from django.conf.urls import url
 
 from .views import (
-    CoursesListView,
+    CourseDetailView,
+    CoursesListCareersView,
     CoursesListCategoriesView,
-    CoursesListCareersView
+    CoursesListView,
 )
 
 urlpatterns = [
@@ -24,6 +25,12 @@ urlpatterns = [
         r'^carreras$',
         CoursesListCareersView.as_view(),
         name='list_careers'
+    ),
+
+    url(
+        r'^(?P<slug>[^/]+)/$',
+        CourseDetailView.as_view(),
+        name='detail'
     ),
 
 ]

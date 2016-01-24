@@ -7,7 +7,7 @@ from .models import (
 )
 
 from django.views.generic import ListView
-
+from django.views.generic.detail import DetailView
 
 class CoursesListView(ListView):
 
@@ -22,3 +22,8 @@ class CoursesListCategoriesView(ListView):
 class CoursesListCareersView(ListView):
 
     model = Career
+
+
+class CourseDetailView(DetailView):
+
+    model = Course

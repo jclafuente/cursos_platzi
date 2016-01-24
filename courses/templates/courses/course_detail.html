@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Cursos de Platzi{% endblock %}
+
+{% block content %}
+
+    <div class="jumbotron">
+        <div class="media">
+            <div class="media-left">
+                <a href="{% url "courses:detail" course.slug %}">
+                    <img width="100" class="media-object" src="{{ course.badge.url }}" alt="{{ course.name }}" />
+                </a>
+            </div>
+            <div class="media-body">
+                <h2 class="media-heading">{{ course.name }}</h2>
+                <p>{{ course.description }}</p>
+                <p>
+                    <a class="btn btn-lg btn-success" href="https://platzi.com/login/" role="button">
+                        Empieza ya
+                    </a>
+                </p>
+            </div>
+            {% if course.youtube_video %}
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <iframe width="640" height="360" src="{{ course.youtube_video }}" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+        <h3 class="text-center" style="margin: 2em 0;">Aprenderás</h3>
+        {% for skill in course.skill_set.all %}
+            <div class="col-xs-2">
+                <img src="{{ skill.image.url }}" alt="{{ skill.title }}" class="skill-image" />
+                <p class="text-center">{{ skill.title }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        {% for topic in course.syllabustopic_set.all %}
+            <p class="col-sm-6 topic-description">{{ topic.description }}</p>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        <h3 class="text-center" style="margin: 2em 0;">Profesores</h3>
+        {% for instructor in course.instructors.all %}
+            <div class="col-sm-3">
+                <img src="{{ instructor.picture.url }}" alt="{{ instructor }}" class="instructor-image" />
+                <h3 class="text-center">{{ instructor.name }}</h3>
+                <p class="twitter-handle text-center">
+                    <a href="https://twitter.com/{{ instructor.twitter_handle }}">@{{ instructor.twitter_handle }}</a>
+                </p>
+                <p class="text-center instructor-job-title">{{ instructor.job_title }}</p>
+                <p class="text-center">{{ instructor.company }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

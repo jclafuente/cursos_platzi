@@ -14,7 +14,7 @@
                 <div class="panel-body">
                     {% for course in career.course_set.all %}
                         <p>
-                            <a href="">
+                            <a href="{% url "courses:detail" course.slug %}">
                                 <img class="category-badge" src="{{ course.badge.url }}" alt="{{ course.name }}" />
                                 {{ course.name }}
                             </a>
