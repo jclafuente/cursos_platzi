@@ -1,11 +1,13 @@
 {% url "courses:list" as courses_list %}
+{% url "courses:list_categories" as courses_list_categories %}
+
 <nav>
     <ul class="nav nav-pills pull-right">
         <li {% if request.path == courses_list %}class="active" {% endif %}>
             <a href="{% url "courses:list" %}">Cursos</a>
         </li>
-        <li>
-            <a href="">Por Categoría</a>
+        <li {% if request.path == courses_list_categories %}class="active" {% endif %}>
+            <a href="{% url "courses:list_categories" %}">Por Categoría</a>
         </li>
         <li>
             <a href="">Por Carreras</a>
