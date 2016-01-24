@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="Aprende marketing, programación y diseño web con Platzi" />
+
+    <link rel="icon" href="{% static "img/favicon.png" %}" />
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}" />
+    <link rel="stylesheet" href="{% static "css/base.css" %}" />
+
+</head>
+<body>
+    <div class="container">
+        <header class="heaer clearfix">
+            {% include "navbar.html" %}
+            <h3>
+                <img src="{% static "img/favicon.png" %}" alt="Platzi ®">
+                Platzi
+            </h3>
+        </header>
+
+        {% block content %}{% endblock %}
+
+        <footer class="footer">
+            <p class="text-center">
+                Check out the 
+                    <a href="https://github.com/pablotrinidad/cursos_platzi">
+                        source
+                    </a> | 
+                Got to <a href="https://platzi.com/">Platzi ®</a>
+            </p>
+        </footer>
+
+    </div>
+</body>
+</html>
