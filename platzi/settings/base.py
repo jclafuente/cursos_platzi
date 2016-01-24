@@ -23,6 +23,7 @@ DJANGO_APPS = (
 )
 
 LOCAL_APPS = (
+    'courses',
 )
 
 THIRD_PARTY_APPS = ()
