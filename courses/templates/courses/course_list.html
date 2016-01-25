@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Cursos de Platzi{% endblock %}
+
+{% block content %}
+
+    <div class="jumbotron">
+        <h1>Platzi</h1>
+        <p class="lead">
+            Aprende diseño, desarrollo y marketing con clases en vivo de líderes de la industria
+        </p>
+        <p><a class="btn btn-lg btn-success" href="https://platzi.com/login/" role="button">Empieza ya</a></p>
+    </div>
+
+    <div class="row">
+        {% for course in course_list %}
+            <div class="col-sm-6 course-element">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="{% url "courses:detail" course.slug %}">
+                            <img class="media-object course-badge" src="{{ course.badge.url }}" alt="{{ course.name }}">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{ course.name }}</h4>
+                        <p>{{ course.description|truncatechars:150 }}</p>
+                        <p>
+                            <strong>Category:</strong> 
+                            <span class="label label-info">{{ course.category }}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

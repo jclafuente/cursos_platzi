@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Cursos de Platzi por categorías{% endblock %}
+
+{% block content %}
+
+    {% for category in category_list %}
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <img class="category-badge" src="{{ category.badge.url }}" alt="{{ category.name }}" />
+                    {{ category.name }}
+                </div>
+                <div class="panel-body">
+                    {% for course in category.course_set.all %}
+                        <p>
+                            <a href="{% url "courses:detail" course.slug %}">
+                                <img class="category-badge" src="{{ course.badge.url }}" alt="{{ course.name }}" />
+                                {{ course.name }}
+                            </a>
+                        </p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
